@@ -4,5 +4,13 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd">
 	
 	<!-- Root Context: defines shared resources visible to all other web components -->
+	<!-- Bullet bullet = new Bullet() -->
+	<!-- Gun gun = new Gun() -->
+	<bean class="com.iu.s1.army.Bullet" id="bullet"></bean>
+
+	
+	
+		
+		
 		
 </beans>
