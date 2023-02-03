@@ -32,8 +32,14 @@ public class ProductDAO {
       
       
    }
-   
-   
+   public ProductDTO getProductDetail(ProductDTO dto) throws Exception {
+	      Connection connection = DBConnection.getConnection();
+	      String sql = "SELECT * FROM PRODUCT WHERE PRODUCT_NUM=?";
+	      PreparedStatement st = connection.prepareStatement(sql);
+	      st.setLong(1, dto.getProduct_Num());
+	      ResultSet rs = st.executeQuery();
+		return dto;
+   }
    public List<ProductOptionDTO> getProductOptionList() throws Exception {
       List<ProductOptionDTO> ar = new ArrayList<ProductOptionDTO>();
       
@@ -87,8 +93,8 @@ public class ProductDAO {
       
       Connection connection = DBConnection.getConnection();
       
-      String sql = "SELECT PRODUCTNUM, PRODUCTNAME, PRODUCTJUMSU "
-            + "FROM PRODUCT ORDER BY PRODUCTJUMSU DESC";
+      String sql = "SELECT PRODUCT_NUM, PRODUCT_NAME, PRODUCT_JUMSU "
+            + "FROM PRODUCT ORDER BY PRODUCT_JUMSU DESC";
       
       PreparedStatement st = connection.prepareStatement(sql);
       
@@ -96,9 +102,9 @@ public class ProductDAO {
       
       while(rs.next()) {
          ProductDTO productDTO = new ProductDTO();
-         productDTO.setProductNum(rs.getInt("PRODUCTNUM"));
-         productDTO.setProductName(rs.getString("PRODUCTNAME"));
-         productDTO.setProductJumsu(rs.getDouble("PRODUCTJUMSU"));
+         productDTO.setProduct_Num(rs.getInt("PRODUCT_NUM"));
+         productDTO.setProduct_Name(rs.getString("PRODUCT_NAME"));
+         productDTO.setProduct_Jumsu(rs.getDouble("PRODUCT_JUMSU"));
          ar.add(productDTO);
          
       }
@@ -112,14 +118,14 @@ public class ProductDAO {
       
       Connection connection = DBConnection.getConnection();
       
-      String sql = "INSERT INTO PRODUCT (PRODUCTNUM, PRODUCTNAME, PRODUCTDETAIL, PRODUCTJUMSU) "
+      String sql = "INSERT INTO PRODUCT (PRODUCT_NUM, PRODUCT_NAME, PRODUCT_DETAIL, PRODUCT_JUMSU) "
             + "VALUES (?, ?, ?, 0.0)";
       
       PreparedStatement st = connection.prepareStatement(sql);
       
-      st.setInt(1, productDTO.getProductNum());
-      st.setString(2, productDTO.getProductName());
-      st.setString(3, productDTO.getProductDetail());
+      st.setLong(1, productDTO.getProduct_Num());
+      st.setString(2, productDTO.getProduct_Name());
+      st.setString(3, productDTO.getProduct_Detail());
 //      st.setDouble(4, productDTO.getProductJumsu());
       
       int result = st.executeUpdate();
