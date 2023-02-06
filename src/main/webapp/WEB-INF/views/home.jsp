@@ -8,6 +8,8 @@
 <h1>
 	Hello world!  
 </h1>
+<a href="/product/detail">ProductDetail</a>
+<a href="/product/list">ProductList</a>
 
 <P>  The time on the server is ${serverTime}. </P>
 </body>
