@@ -12,7 +12,7 @@ public class MemberController {
 	@RequestMapping(value = "id")
 	public String getMemberJoin() {
 		System.out.println("Member Id");
-		return "member/memberId";
+		return "member/memberJoin";
 	}
 	
 	

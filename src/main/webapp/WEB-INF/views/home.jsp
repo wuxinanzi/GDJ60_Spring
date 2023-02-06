@@ -8,8 +8,9 @@
 <h1>
 	Hello world!  
 </h1>
-<a href="/product/detail">ProductDetail</a>
-<a href="/product/list">ProductList</a>
+<a href="/member/join">MemberJoin</a>
+<a href="/member/login">MemberLogin</a>
+<a href="/member/page">MemberPage</a>
 
 <P>  The time on the server is ${serverTime}. </P>
 </body>

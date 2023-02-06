@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>Member  Page</h1>
+      <h1>Member List</h1>
 </body>
 </html>
