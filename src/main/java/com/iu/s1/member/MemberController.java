@@ -9,10 +9,10 @@ import org.springframework.web.servlet.ModelAndView;
 public class MemberController {
 
 	
-	@RequestMapping(value = "join")
+	@RequestMapping(value = "id")
 	public String getMemberJoin() {
-		System.out.println("Member Join");
-		return "member/memberJoin";
+		System.out.println("Member Id");
+		return "member/memberId";
 	}
 	
 	

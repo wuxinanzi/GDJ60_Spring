@@ -24,7 +24,7 @@ public class ProductService {
    }
    
    public int setAddProduct(ProductDTO productDTO, List<ProductOptionDTO> ar) throws Exception {
-      int productNum = productDAO.getProductNum();
+	  int productNum = productDAO.getProductNum();
       productDTO.setProduct_Num(productNum);
       int result = productDAO.setAddProduct(productDTO);
       
