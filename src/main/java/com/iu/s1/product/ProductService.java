@@ -23,10 +23,10 @@ public class ProductService {
       return productDAO.getProductList();
    }
    
-   public int setAddProduct(ProductDTO productDTO, List<ProductOptionDTO> ar) throws Exception {
+   public int setProductAdd(ProductDTO productDTO, List<ProductOptionDTO> ar) throws Exception {
 	  int productNum = productDAO.getProductNum();
       productDTO.setProduct_Num(productNum);
-      int result = productDAO.setAddProduct(productDTO);
+      int result = productDAO.setProductAdd(productDTO);
       
       if(ar != null) {
       

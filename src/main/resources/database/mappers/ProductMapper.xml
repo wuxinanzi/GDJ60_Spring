@@ -13,7 +13,7 @@
   		SELEC * FROM PRODUCT WHERE PRODUCT_NUM=#{product_Num}
   	</select>
   	
-  	<insert id="setAddProduct" parameterType="ProductDTO">
+  	<insert id="setProductAdd" parameterType="ProductDTO">
   		INSERT INTO PRODUCT
   		VALUES (#{product_Num}, #{product_Name}, #{product_Detail}, 0.0)
   	</insert>

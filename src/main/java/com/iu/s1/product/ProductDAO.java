@@ -131,9 +131,9 @@ public class ProductDAO {
 
    
    
-   public int setAddProduct(ProductDTO productDTO) throws Exception {
+   public int setProductAdd(ProductDTO productDTO) throws Exception {
 	      
-	   return  sqlSession.insert(NAMESPACE+"setAddProduct", productDTO);
+	   return  sqlSession.insert(NAMESPACE+"setProductAdd", productDTO);
 	      
 	   }
 	   
