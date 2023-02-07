@@ -29,22 +29,12 @@ public class ProductDAO {
 
 	   }
    
-   public int getProductNum() throws Exception {
-      Connection connection = DBConnection.getConnection();
-      
-      String sql = "SELECT PRODUCT_SEQ.NEXTVAL FROM DUAL";
-      
-      PreparedStatement st = connection.prepareStatement(sql);
-      
-      ResultSet rs = st.executeQuery();
-      
-      rs.next();
-      
-      int num =  rs.getInt(1);
-      
-      DBConnection.disConnection(rs, st, connection);
-      
-      return num;
+   public Long getProductNum() throws Exception {
+//    
+//      
+//      String sql = "SELECT PRODUCT_SEQ.NEXTVAL FROM DUAL";
+//      
+	   return sqlSession.selectOne(NAMESPACE+"getProductNum");
       
       
    }
