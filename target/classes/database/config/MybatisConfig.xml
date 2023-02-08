@@ -4,11 +4,18 @@
   "https://mybatis.org/dtd/mybatis-3-config.dtd">
   
   <configuration>
+  
  	<typeAliases>
  		<typeAlias type="com.iu.s1.product.ProductDTO" alias="ProductDTO"/>
  		
  		
+ 		
+ 	
+ 	
+  		<typeAlias type="com.iu.s1.bankbook.BankBookDTO" alias="BankBookDTO"/>
+ 		
+ 		
  		<typeAlias type="java.lang.Long" alias="Long"/>
- 	</typeAliases> 
-  
-  </configuration>
+ 	</typeAliases>
+ </configuration>
+ 

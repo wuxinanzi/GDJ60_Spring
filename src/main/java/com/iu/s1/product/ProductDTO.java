@@ -5,36 +5,37 @@ import org.springframework.stereotype.Component;
 
 public class ProductDTO {
 	
-	private long product_Num;
-	private String product_Name;
-	private String product_Detail;
-	private Double product_Jumsu;
+	private long productNum;
+	private String productName;
+	private String productDetail;
+	private Double productJumsu;
 	
-	public long getProduct_Num() {
-		return product_Num;
+	public long getProductNum() {
+		return productNum;
 	}
-	public void setProduct_Num(long product_Num) {
-		this.product_Num = product_Num;
+	public void setProductNum(long productNum) {
+		this.productNum = productNum;
 	}
-	public String getProduct_Name() {
-		return product_Name;
+	public String getProductName() {
+		return productName;
 	}
-	public void setProduct_Name(String product_Name) {
-		this.product_Name = product_Name;
+	public void setProductName(String productName) {
+		this.productName = productName;
 	}
-	public String getProduct_Detail() {
-		return product_Detail;
+	public String getProductDetail() {
+		return productDetail;
 	}
-	public void setProduct_Detail(String product_Detail) {
-		this.product_Detail = product_Detail;
+	public void setProductDetail(String productDetail) {
+		this.productDetail = productDetail;
 	}
-	public Double getProduct_Jumsu() {
-		return product_Jumsu;
+	public Double getProductJumsu() {
+		return productJumsu;
 	}
-	public void setProduct_Jumsu(Double product_Jumsu) {
-		this.product_Jumsu = product_Jumsu;
+	public void setProductJumsu(Double productJumsu) {
+		this.productJumsu = productJumsu;
 	}
-
+	
+	
 	
 	
 	

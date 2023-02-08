@@ -12,8 +12,8 @@
 	 <% ProductDTO productDTO = (ProductDTO)request.getAttribute("dto"); %>
 	 
 	 
-	 <h3><%= productDTO.getProduct_Name() %></h3>
-	 <h3><%= productDTO.getProduct_Detail() %></h3>
+	 <h3><%= productDTO.getProductName() %></h3>
+	 <h3><%= productDTO.getProductDetail() %></h3>
 	 
 	 <hr>
 	 <h3>${requestScope.dto.product_Name}</h3>

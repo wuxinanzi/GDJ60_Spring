@@ -7,21 +7,21 @@
   	<select id="getProductNum" resultType="Long"></select>
   	
   	<select id="getProductList" resultType="ProductDTO" statementType="PREPARED">
-  		SELECT PRODUCT_NUM, PRODUCT_NAME, PRODUCT_JUMSU
+  		SELECT PRODUCTNUM, PRODUCTNAME, PRODUCTJUMSU
   		FROM PRODUCT
-  		ORDER BY PRODUCT_NUM DESC
+  		ORDER BY PRODUCTNUM DESC
   	</select>
   	<select id="getProductDetail" parameterType="ProductDTO" resultType="com.iu.s1.product.ProductDTO">
-  		SELEC * FROM PRODUCT WHERE PRODUCT_NUM=#{product_Num}
+  		SELEC * FROM PRODUCT WHERE PRODUCTNUM=#{productNum}
   	</select>
   	
   	<insert id="setProductAdd" parameterType="ProductDTO">
   		INSERT INTO PRODUCT
-  		VALUES (#{product_Num}, #{product_Name}, #{product_Detail}, 0.0)
+  		VALUES (#{productNum}, #{productName}, #{productDetail}, 0.0)
   	</insert>
   	
   	
   	<delete id="setProductDelete" parameterType="Long">
-  		DELETE PRODUCT WHERE PRODUCT_NUM=#{product_NUM}
+  		DELETE PRODUCT WHERE PRODUCTNUM=#{productNUM}
   	</delete>
   </mapper>

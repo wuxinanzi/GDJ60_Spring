@@ -25,7 +25,7 @@ public class MemberDAO {
 //		st.set(1,)
 //	}
 //}	
-public List<MemberDTO> getMemberList() throws Exception {
+public List<MemberDTO> setMemberJoin() throws Exception {
     List<MemberDTO> ar = new ArrayList<MemberDTO>();
     
     Connection con = DBConnection.getConnection();
@@ -51,4 +51,6 @@ public List<MemberDTO> getMemberList() throws Exception {
     return ar;
     
  }
+
+
 }
