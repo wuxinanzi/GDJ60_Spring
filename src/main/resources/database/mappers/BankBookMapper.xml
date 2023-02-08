@@ -19,4 +19,6 @@
 		DELETE FROM BANKBOOK WHERE BOOKNUMBER=#{bookNumber}
 	</delete>
 	
+	
+	
 </mapper>
