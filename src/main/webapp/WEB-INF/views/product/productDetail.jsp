@@ -16,9 +16,9 @@
 	 <h3><%= productDTO.getProductDetail() %></h3>
 	 
 	 <hr>
-	 <h3>${requestScope.dto.product_Name}</h3>
-	 <h3>${dto.getProduct_Detail()}</h3>
-	 <h3>${dto.product_Jumsu * 10}</h3>
+	 <h3>${requestScope.dto.productName}</h3>
+	 <h3>${dto.getProductDetail()}</h3>
+	 <h3>${dto.productJumsu * 10}</h3>
 	 
 	 
 	 

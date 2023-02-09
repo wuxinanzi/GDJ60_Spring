@@ -24,4 +24,6 @@
   	<delete id="setProductDelete" parameterType="Long">
   		DELETE PRODUCT WHERE PRODUCTNUM=#{productNUM}
   	</delete>
+  	
+  	
   </mapper>

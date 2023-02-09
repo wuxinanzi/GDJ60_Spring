@@ -6,16 +6,22 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href="/resources/css/table.css">
 </head>
 <body>
- 	<h1>BankBook List page</h1>
+ 	<h1 class="title">BankBook List page</h1>
  	
- 	<table border="1">
+ 	<img class="image" alt="웃는 아이유" src="/resources/images/iu.jpg">
+ 	<img class="image" alt="물건을 들고 있는 카리나" src="../resources/images/k.jpg">
+ 	
+ 	
+ 	
+ 	<table class="tb1" border="1">
  		<thead>
  			<tr>
- 				<th>상품명</th>
- 				<th>이자율</th>
- 				<th>판매여부</th>
+ 				<th class="c1">상품명</th>
+ 				<th class="c1">이자율</th>
+ 				<th class="c1">판매여부</th>
  				
  			</tr>
  			</thead>
