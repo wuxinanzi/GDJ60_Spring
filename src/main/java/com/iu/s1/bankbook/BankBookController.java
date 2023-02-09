@@ -86,17 +86,4 @@ public class BankBookController {
 		return mv;
 		
 	}
-	
 }
-//	@RequestMapping(value="list")
-//	public ModelAndView getProductList(ModelAndView mv) throws Exception {
-//		 
-//		  //ModelAndView mv = new ModelAndView();
-//	
-//		  List<ProductDTO> ar = productService.getProductList();
-//          System.out.println(ar.size()>0);
-//          mv.setViewName("product/productList");
-//          mv.addObject("list",ar);
-//	      return mv;
-//	}
-
