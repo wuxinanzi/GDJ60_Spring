@@ -4,6 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<c:import url="./template/common_css.jsp"></c:import>
 <title>Insert title here</title>
 </head>
 <body>

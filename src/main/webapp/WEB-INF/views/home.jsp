@@ -5,23 +5,14 @@
 <html>
 <head>
 	<title>Home</title>
-	<link rel="stylesheet" href="./resources/css/main.css">
+	<c:import url="./template/header_css.jsp"></c:import>
+	<link rel="stylesheet" href="./resources/css/reset.css">
+	<link rel="stylesheet" href="./resources/css/header.css">
+	<link rel="stylesheet" href="./resources/css/table.css">
 </head>
 <body>
-<h1>
-	Hello world!  
-</h1>
-
-
-<a href="/product/list" class="menu">ProductList</a>
-<a href="/member/login" class="menu">MemberLogin</a>
-<a href="/member/page" class="menu">MemberPage</a>
-<a href="/bankBook/list" class="menu">BankBookList</a>
-<a href="./bankBook/list" class="menu">BankBookList</a>
-
-<img alt="그냥 아파트1" src="/resources/images/a.jpg">
-<img alt="강가의 아파트" src="./resources/images/abc.jpg">
-
-<P>  The time on the server is ${serverTime}. </P>
+	<!--서버 내부 주소, 상대경로-->
+	<c:import url="./template/header.jsp"></c:import>
+		
 </body>
 </html>
