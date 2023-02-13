@@ -50,7 +50,7 @@ public class BankBookController {
 	public ModelAndView setBankBookAdd(BankBookDTO bankBookDTO) throws Exception{
 		
 		ModelAndView mv = new ModelAndView();
-		//int result = bankBookService.setBankBookAdd(bankBookDTO);//디비를 가야되니까 매개타입과 매개변수 작성
+		int result = bankBookService.setBankBookAdd(bankBookDTO);//디비를 가야되니까 매개타입과 매개변수 작성
 		
 		mv.setViewName("redirect:./list");
 		

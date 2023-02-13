@@ -1,8 +1,5 @@
 package com.iu.s1.member;
 
-import org.springframework.stereotype.Component;
-
-@Component
 public class MemberDTO {
 	
 	private String id;
@@ -11,8 +8,6 @@ public class MemberDTO {
 	private String address;
 	private String phone;
 	private String email;
-	
-	
 	public String getId() {
 		return id;
 	}
@@ -50,4 +45,6 @@ public class MemberDTO {
 		this.email = email;
 	}
 	
+	
+
 }
