@@ -17,7 +17,7 @@
 
 <div class="container-fluid my-5 ">
 		<div class="row col-md-6 offset-md-3">
-<div id="carouselExampleRide" class="carousel slide" data-bs-ride="true">
+<div id="carouselExampleRide" class="carousel slide" data-bs-ride="carousel">
   <div class="carousel-inner">
     <div class="carousel-item active">
       <img src="/resources/images/s1.jpg" class="d-block w-100" alt="...">
@@ -39,6 +39,9 @@
   </button>
   </div>
 </div>
+</div>
+<div>
+	<h1>${member.name}</h1>
 </div>
 </body>
 

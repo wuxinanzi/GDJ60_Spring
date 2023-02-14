@@ -11,7 +11,19 @@ public class MemberService {
 	
 	
 	public int setMemberAdd(MemberDTO memberDTO)throws Exception{
-		return memberDAO.setMemberAdd(memberDTO);
+		int result = memberDAO.setMemberAdd(memberDTO);
+		result = memberDAO.setMemberRoleAdd(memberDTO);
+		return result;
 	}
+	
+	public MemberDTO getMemberLogin(MemberDTO memberDTO)throws Exception{
+		return memberDAO.getMemberLogin(memberDTO);
+	}
+	
+	
+	public int setMemberUpdate(MemberDTO memberDTO)throws Exception{
+		return memberDAO.setMemberUpdate(memberDTO);
+	}
+
 
 }

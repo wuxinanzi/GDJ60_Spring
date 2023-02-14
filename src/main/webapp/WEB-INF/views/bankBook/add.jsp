@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>   
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,55 +8,61 @@
 <title>Insert title here</title>
 <c:import url="../template/common_css.jsp"></c:import>
 
-
 </head>
 <body>
- <c:import url="../template/header.jsp"></c:import>   
+<c:import url="../template/header.jsp"></c:import>
+
+<div class="container-fluid">
+
+	<div class="row col-md-7">
+		<h1>상품 등록 Page</h1>
+	</div>
 	
-	<div class="containt-md-7">
+	<div class="row justify-content-center">
+		<form class="col-md-7" action="./add" method="post">
+			<div class="mb-3">
+			  <label for="bookName" class="form-label">제품명</label>
+			  <input type="text" name="bookName" class="form-control" id="bookName" placeholder="제품명 입력">
+			</div>
 			
-			<h1 class="col-md-7 mx-auto text-center text-success my-5">상품 등록 Page</h1>
+			<div class="mb-3">
+			  <label for="bookRate" class="form-label">이자율</label>
+			  <input type="text" name="bookRate" class="form-control" id="bookRate" placeholder="이자율 입력">
+			</div>
+	
+			<div class="mb-3">
+			  <label for="bookDetail" class="form-label">상세설명</label>
+			  <textarea name="bookDetail" class="form-control" id="bookDetail" placeholder="설명 입력" rows="7"></textarea>
+			</div>	
+<!-- 	
+			<div class="mb-3">
+				<label class="form-label">판매여부</label>
+				<div class="form-check">
+				  <input class="form-check-input" checked type="radio" name="bookSale" id="bookSale1" value="1">
+				  <label class="form-check-label" for="bookSale1">
+				    판매중
+				  </label>
+				</div>
+				<div class="form-check">
+				  <input class="form-check-input" type="radio" name="bookSale" id="bookSale2" value="0">
+				  <label class="form-check-label" for="bookSale2">
+				    판매중단
+				  </label>
+				</div>		
+			</div>
+	 -->		
+			<div class=" mb-3 form-check form-switch">
+			   <label class="form-check-label" for="bookSale">판매여부</label>
+			   <input name="bookSale" class="form-check-input" value="1" type="checkbox" role="switch" id="bookSale">
+			</div>
 			
-			<form action="./add" method="post">
-			
-				<fieldset>
-					<legend class="col-md-2 mx-auto text-center border boder-bottom border-dark text-danger">상품명</legend>
-					<input  class="col-md-10 mx-auto text-center border boder-bottom border-red pb-6 " type="text"  name="bookName" placeholder="제품명 입력">
-				</fieldset>
-				<fieldset>
-					<legend class="col-md-2 mx-auto text-center border boder-bottom border-tob pb-3">이자율</legend>
-					<input class="col-md-10 mx-auto text-center border boder-bottom border-tob pb-3" type="text" name="bookRate" placeholder="이자율 입력">
-				</fieldset>
-				<fieldset>
-					<legend class="col-md-2 mx-auto text-center border boder-bottom border-red pb-6">상세설명</legend>
-					<textarea class="col-md-10 mx-auto text-center border boder-bottom border-red pb-6" rows="" cols="" name="bookDetail" placeholder="상세정보 입력"></textarea>
-				</fieldset>
-				<fieldset>
-					<legend class="col-md-2 mx-auto text-center border boder-bottom border-red pb-6">판매여부</legend>
-					
-					<label class="col-md-2 mx-auto text-center border boder-bottom border-red pb-6" for="bs1">판매</label>
-	 				<input id="bs1" type="radio" checked name="bookSale" value="1">
-	 				
-	 				<label class="col-md-2 mx-auto text-center border boder-bottom border-red pb-6" for="bs2">판매중단</label>
-					<input id="bs2" type="radio" name="bookSale" value="0">	
-				</fieldset>
-				<fieldset>
-					<legend class="col-md-2 mx-auto text-center border boder-bottom border-red pb-6">판매여부</legend>
-					<select name="bookSale">
-						<option value="1">판매</option>
-						<option selected value="0">판매중단</option>
-					</select>
-				</fieldset>
-				<fieldset>
-				
-					<input  class="btn btn-success btn btn-warning center " type="submit"  value="등록">
-					<div align="right">
-					<button type="submit" class="btn btn-dark btn btn-warning">등록</button>
-					</div>			
-				</fieldset>
-			</form>
+			<div class="mb-3">
+				<button class="my btn btn-danger" type="submit">등록</button>
+			</div>
 		
-		<c:import url="../template/common_js.jsp"></c:import>
-		</div>
+		</form>
+	</div>
+</div>	
+<c:import url="../template/common_js.jsp"></c:import>
 </body>
 </html>
