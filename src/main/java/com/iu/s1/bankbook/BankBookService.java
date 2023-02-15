@@ -5,6 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.iu.s1.util.Pager;
+
 @Service
 public class BankBookService {
 	
@@ -12,8 +14,16 @@ public class BankBookService {
 	private BankBookDAO bankBookDAO;
 	private final String NAMESPACE="com.iu.s1.bankBook.BankBookDAO.";
 	
-	public List<BankBookDTO> getBankBookList()throws Exception{
-		return bankBookDAO.getBankBookList();
+	public List<BankBookDTO> getBankBookList(Pager pager)throws Exception{
+		
+		
+		
+		Long totalCount = bankBookDAO.getBankBookCount();//30
+		
+		pager.makeNum(totalCount);
+		pager.makeRow();
+		
+		return bankBookDAO.getBankBookList(pager);
 	}
 	
 	public BankBookDTO getBankBookDetail(BankBookDTO bankBookDTO)throws Exception{

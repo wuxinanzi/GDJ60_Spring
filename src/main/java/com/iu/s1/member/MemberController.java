@@ -58,14 +58,22 @@ public class MemberController {
 	@RequestMapping(value = "memberPage", method = RequestMethod.GET)
 	public ModelAndView getMemberPage(HttpSession session)throws Exception{
 		ModelAndView mv = new ModelAndView();
+		MemberDTO memberDTO = (MemberDTO)session.getAttribute("member");
 		
+		memberDTO = memberService.getMemberPage(memberDTO);
+		mv.addObject("dto",memberDTO);
 		mv.setViewName("member/memberPage");
 		return mv;
 
 }
 	@RequestMapping(value = "memberUpdate", method = RequestMethod.GET)
-	public ModelAndView getMemberUpdate() throws Exception{
+	public ModelAndView getMemberUpdate(HttpSession session) throws Exception{
 		ModelAndView mv = new ModelAndView();
+		MemberDTO memberDTO = (MemberDTO)session.getAttribute("member");
+		
+		memberDTO = memberService.getMemberPage(memberDTO);
+		mv.addObject("dto",memberDTO);
+		
 		mv.setViewName("member/memberUpdate");
 		return mv;
 	
