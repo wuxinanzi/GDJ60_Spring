@@ -42,8 +42,12 @@ public class MemberController {
 	public ModelAndView getMemberLogin(MemberDTO memberDTO, HttpServletRequest request)throws Exception{
 		ModelAndView mv = new ModelAndView();
 		memberDTO = memberService.getMemberLogin(memberDTO);
-		HttpSession session = request.getSession();
-		session.setAttribute("member", memberDTO);
+		if(memberDTO != null) {
+			HttpSession session = request.getSession();
+			session.setAttribute("member", memberDTO);
+		}
+		
+		
 		mv.setViewName("redirect:../");
 		return mv;
 	}

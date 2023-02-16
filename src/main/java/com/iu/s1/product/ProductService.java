@@ -5,6 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.iu.s1.util.Pager;
+
 
 @Service
 public class ProductService {
@@ -12,15 +14,20 @@ public class ProductService {
 	
    @Autowired
    private ProductDAO productDAO;
-  
+   private final String NAMESPACE="com.iu.s1.product.ProductDAO.";
 
    // 결합도가 낮다(약하다)
    public void setProductDAO(ProductDAO productDAO) {
       this.productDAO = productDAO;
    }
    
-   public List<ProductDTO> getProductList() throws Exception {
-      return productDAO.getProductList();
+   public List<ProductDTO> getProductList(Pager pager) throws Exception {
+	   //Long totalCount = productDAO.getProductCount(pager);//30
+		
+//		pager.makeNum(totalCount);
+//		pager.makeRow();
+		
+      return productDAO.getProductList(pager);
    }
    
    public int setProductAdd(ProductDTO productDTO, List<ProductOptionDTO> ar) throws Exception {

@@ -33,6 +33,11 @@
 			<div class="mb-3">
 			  <label for="bookDetail" class="form-label">상세설명</label>
 			  <textarea name="bookDetail" class="form-control" id="bookDetail" placeholder="설명 입력" rows="7"></textarea>
+			</div>
+			
+			<div class="mb-3">
+			  <label for="files" class="form-label">image</label>
+			   <input type="file" class="form-control" id="files" name="pic" placeholder="이자율 입력">
 			</div>	
 <!-- 	
 			<div class="mb-3">

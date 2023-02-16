@@ -20,7 +20,7 @@ public class MemberService {
 	      
 	      MemberDTO result = memberDAO.getMemberLogin(memberDTO);
 	
-	if(result != null && memberDTO.getPw().equals(result.getPw())) {
+	     if(result != null && memberDTO.getPw().equals(result.getPw())) {
 		memberDTO.setPw(null);
 		return memberDTO;
 	}else {

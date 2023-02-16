@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.iu.s1.util.DBConnection;
+import com.iu.s1.util.Pager;
 
 @Repository
 public class ProductDAO {
@@ -93,9 +94,9 @@ public class ProductDAO {
    }
    
    
-   public List<ProductDTO> getProductList() throws Exception{
+   public List<ProductDTO> getProductList(Pager pager) throws Exception{
       
-	   return sqlSession.selectList(NAMESPACE+"getProductList");
+	   return sqlSession.selectList(NAMESPACE+"getProductList",pager);
 	 }
 //      ArrayList<ProductDTO> ar = new ArrayList<ProductDTO>();
       
