@@ -15,11 +15,11 @@
 <div class="container-fluid">
 
 	<div class="row col-md-7">
-		<h1>상품 등록 Page</h1>
+		<h1>bankBook add Page</h1>
 	</div>
 	
 	<div class="row justify-content-center">
-		<form class="col-md-7" action="./add" method="post">
+		<form class="col-md-7" action="./add" method="post" enctype="multipart/form-data">
 			<div class="mb-3">
 			  <label for="bookName" class="form-label">제품명</label>
 			  <input type="text" name="bookName" class="form-control" id="bookName" placeholder="제품명 입력">
@@ -36,8 +36,8 @@
 			</div>
 			
 			<div class="mb-3">
-			  <label for="files" class="form-label">image</label>
-			   <input type="file" class="form-control" id="files" name="pic" placeholder="이자율 입력">
+			  <label for="files" class="form-label">Image</label>
+			   <input type="file" class="form-control" id="files" name="pic" >
 			</div>	
 <!-- 	
 			<div class="mb-3">

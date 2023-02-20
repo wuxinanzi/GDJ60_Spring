@@ -14,16 +14,16 @@
 				<input type="hidden" name="bookNumber" value="${dto.bookNumber}">
 				
 				<fieldset>
-					<legend>상품명</legend>
-		 			<input type="text" name="bookName" value="${dto.bookName}" placeholder="제품명 입력">
+					<legend>제품명</legend>
+		 			<input type="text" name="bookName" value="${dto.bookName}"  id="bookName" placeholder="제품명 입력">
 		 		</fieldset>
 		 		<fieldset>
 		 			<legend>이자율</legend>
-					<input type="text" name="bookRate" value="${dto.bookRate}">
+					<input type="text" name="bookRate" value="${dto.bookRate}" id="bookRate" placeholder="이자율 입력">
 				</fieldset>
 				<fieldset>
 					<legend>상세정보</legend>
-					<textarea rows="" cols="" name="bookDetail">${dto.bookDetail}</textarea>
+					<textarea rows="" cols="" name="bookDetail" id="bookDetail" placeholder="설명 입력" rows="7">${dto.bookDetail}</textarea>
 				</fieldset>
 				<fieldset>
 					<legend>판매여부</legend>

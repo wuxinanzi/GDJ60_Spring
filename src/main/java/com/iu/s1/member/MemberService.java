@@ -21,14 +21,14 @@ public class MemberService {
 	      MemberDTO result = memberDAO.getMemberLogin(memberDTO);
 	
 	     if(result != null && memberDTO.getPw().equals(result.getPw())) {
-		memberDTO.setPw(null);
-		return memberDTO;
-	}else {
-		return null;
-	}
-}
+						memberDTO.setPw(null);
+						return memberDTO;
+				}else {
+					return null;
+				}
+			}
 	 
-		public MemberDTO getMemberPage(MemberDTO memberDTO) throws Exception{
+	public MemberDTO getMemberPage(MemberDTO memberDTO) throws Exception{
 			return memberDAO.getMemberLogin(memberDTO);
 		}
 	
@@ -38,15 +38,4 @@ public class MemberService {
 		return memberDAO.setMemberUpdate(memberDTO);
 	}
 }
-//	 public MemberDTO getMemberLogin(MemberDTO memberDTO)throws Exception{
-//	      
-//	      MemberDTO result = memberDAO.getMemberLogin(memberDTO);
-//	
-//	if(result != null && memberDTO.getPw().equals(result.getPw())) {
-//		memberDTO.setPw(null);
-//		return memberDTO;
-//	}else {
-//		return null;
-//	}
-//}
 

@@ -16,7 +16,6 @@ public class Pager {
 	//전체 page 갯수
 	private Long totalPage;
 	
-	
 	//Client가 보고싶은 페이지 번호(parameter)
 	private Long page;
 	
@@ -49,7 +48,7 @@ public class Pager {
 		
 		//1. 전체 row의 갯수 구하기
 		//2. 총 page의 갯수 구하기
-	 this.totalPage = totalCount/this.getPerPage();
+		this.totalPage = totalCount/this.getPerPage();
 		if(totalCount%this.getPerPage() != 0 ) {
 			//totalPage=totalPage+1;
 			//totalPage+=1;
@@ -108,29 +107,39 @@ public class Pager {
 //		this.totalCount = totalCount;
 //	}
 	
+	
+	
+	
+
+	public Long getPerPage() {
+		if(this.perPage==null || this.perPage==0) {
+			this.perPage=10L;
+		}
+		return perPage;
+	}
+	
 	public String getKind() {
 		return kind;
 	}
-	
+
 	public void setKind(String kind) {
 		this.kind = kind;
 	}
-	
+
 	public String getSearch() {
 		if(search == null) {
-			search ="";
+			search="";
 		}
-		return search;//"%"+search+"%";
+		return search; //"%"+search+"%";
 	}
-	
+
 	public void setSearch(String search) {
 		this.search = search;
 	}
-	
+
 	public Long getTotalPage() {
 		return totalPage;
 	}
-	
 
 	public Long getPerBlock() {
 		if(this.perBlock == null || this.perBlock<1) {
@@ -139,17 +148,9 @@ public class Pager {
 		
 		return perBlock;
 	}
-	
 
 	public void setPerBlock(Long perBlock) {
 		this.perBlock = perBlock;
-	}
-
-	public Long getPerPage() {
-		if(this.perPage==null || this.perPage==0) {
-			this.perPage=10L;
-		}
-		return perPage;
 	}
 
 	public boolean isBefore() {

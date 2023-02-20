@@ -1,8 +1,5 @@
 package com.iu.s1.product;
 
-import org.springframework.stereotype.Component;
-
-
 public class ProductDTO {
 	
 	private long productNum;
