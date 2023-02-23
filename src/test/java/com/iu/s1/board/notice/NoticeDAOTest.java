@@ -13,6 +13,7 @@ public class NoticeDAOTest extends MyTestCase{
 	@Autowired
 	private NoticeDAO noticeDAO;
 	
+	@Test
 	public void getBoardListTest()throws Exception{
 		Pager pager = new Pager();
 		pager.setKind("writer");
