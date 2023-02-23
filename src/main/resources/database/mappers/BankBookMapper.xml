@@ -55,28 +55,29 @@
  	<select id="getBankBookDetail" parameterType="BankBookDTO" resultMap="bankBookDetailResult">
 				SELECT B.*,BI.*
 				FROM BANKBOOK B
-					 INNER JOIN
+					 LEFT OUTER JOIN
 					 BANKBOOKIMG BI
 					 ON(B.BOOKNUMBER = BI.BOOKNUMBER)
 				WHERE B.BOOKNUMBER =#{bookNumber}
  	</select>
  	
  	<resultMap type="BankBookDTO" id="bankBookDetailResult">
- 				<!-- Primary key -->
- 				<id column="BOOKNUMBER" property="bookNumber"/>
- 				<!-- 그외 나머지 -->
- 				<result column="BOOKNAME" property="bookName"/>
- 				<result column="BOOKDETAIL" property="bookDetail"/>
- 				<result column="BOOKRATE" property="bookRate"/>
- 				<result column="BOOKSALE" property="bookSale"/>
- 				<!-- 1:1 -->
- 				<association property="bankBookImgDTO" javaType="BankBookImgDTO">
- 					<id column="FILENUM" property="fileNum"/>
- 					<result column="FILENAME" property="fileName"/>
- 					<result column="ORINAME" property="oriName"/>
- 				</association>
- 				<!-- 1:N -->
- 				<!-- <collection property=""></collection> -->
+ 		<!-- Primary key -->
+ 		<id column="BOOKNUMBER" property="bookNumber"/>
+ 		<!-- 그외 나머지 -->
+ 		<result column="BOOKNAME" property="bookName"/>
+ 		<result column="BOOKRATE" property="bookRate"/>
+ 		<result column="BOOKSALE" property="bookSale"/>
+ 		<result column="BOOKDETAIL" property="bookDetail"/>
+ 		<!-- 1:1 -->
+ 		<association property="bankBookImgDTO" javaType="BankBookImgDTO">
+ 			<id column="FILENUM" property="fileNum"/>
+ 			<result column="FILENAME" property="fileName"/>
+ 			<result column="ORINAME" property="oriName"/>
+ 		</association>
+ 		<!-- 1:N -->
+ 		<!-- <collection property=""></collection> -->
+ 		
  	</resultMap>
 
  	<insert id="setBankBookAdd" parameterType="BankBookDTO">
