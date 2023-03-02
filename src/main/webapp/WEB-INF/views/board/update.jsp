@@ -14,8 +14,8 @@
 
 <div class="container-fluid">
 
-	<div class="row col-md-7">
-		<h1>${boardName} Add page</h1>
+<div class="row justify-content-center my-4">
+		<h1 class="col-md-7 text-center">${boardName} Update Page</h1>
 	</div>
 	
 	<div class="row justify-content-center my-4">
