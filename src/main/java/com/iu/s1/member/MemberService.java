@@ -22,6 +22,7 @@ public class MemberService {
 	
 	     if(result != null && memberDTO.getPw().equals(result.getPw())) {
 						memberDTO.setPw(null);
+						memberDTO.setRoleDTO(result.getRoleDTO());
 						return memberDTO;
 				}else {
 					return null;
@@ -37,5 +38,7 @@ public class MemberService {
 	public int setMemberUpdate(MemberDTO memberDTO)throws Exception{
 		return memberDAO.setMemberUpdate(memberDTO);
 	}
+	
+	
 }
 

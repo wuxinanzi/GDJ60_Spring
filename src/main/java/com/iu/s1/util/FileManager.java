@@ -10,7 +10,14 @@ import org.springframework.web.multipart.MultipartFile;
 
 @Component
 public class FileManager {
-	
+	//File을 HDD에서 삭제
+	//File을 HDD에서 삭제
+	public boolean fileDelete(String path, String fileName) throws Exception {
+		File file = new File(path, fileName);
+		
+		return file.delete();
+		
+	} 
 	//File을 HDD에 저장
 	public String fileSave(MultipartFile multipartFile, String path)throws Exception{
 		//1. 어디에 저장할것인가??
@@ -42,6 +49,8 @@ public class FileManager {
 		
 		//2)Spring API FileCopyUtis 객체의 copy메서드사용
 		FileCopyUtils.copy(multipartFile.getBytes(), file);
+		
+		//return으로 저장된 이름을 준다
 		return name;
 		
 	}

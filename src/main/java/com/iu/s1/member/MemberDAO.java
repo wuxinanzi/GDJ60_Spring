@@ -4,6 +4,8 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.iu.s1.board.BbsDTO;
+
 @Repository
 public class MemberDAO {
 	@Autowired
@@ -25,4 +27,11 @@ public class MemberDAO {
 	public int setMemberUpdate(MemberDTO memberDTO)throws Exception{
 		return sqlSession.update(NAMESPACE+"setMemberUpdate", memberDTO);
 	}
-}
+	
+	public int setMemberDelete(MemberDTO memberDTO) throws Exception {
+		// TODO Auto-generated method stub
+		return sqlSession.delete(NAMESPACE+"setMemberDelete", memberDTO);
+	}
+
+
+}	

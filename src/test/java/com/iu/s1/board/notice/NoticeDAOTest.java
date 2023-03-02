@@ -13,10 +13,23 @@ public class NoticeDAOTest extends MyTestCase{
 	@Autowired
 	private NoticeDAO noticeDAO;
 	
+	
+	/*
+	 * @Test public void getBoardListTest()throws Exception{ Pager pager = new
+	 * 
+	 * Pager(); pager.setKind("writer");
+	 * 
+	 * pager.setSearch("나");
+	 * 
+	 * }
+	 */
 	@Test
-	public void getBoardListTest()throws Exception{
-		Pager pager = new Pager();
-		pager.setKind("writer");
-	    pager.setSearch("나");
+	public void setBoardAddTest()throws Exception{
+		NoticeDTO noticeDTO = new  NoticeDTO();
+		noticeDTO.setTitle("Title2");
+		noticeDTO.setWriter("writer1");
+		noticeDTO.setContents("Contents1");
+		int result = noticeDAO.setBoardAdd(noticeDTO);
+		assertEquals(1, result);
 	}
 }

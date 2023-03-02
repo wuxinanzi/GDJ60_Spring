@@ -14,6 +14,7 @@ public class MemberDTO {
 	
 	
 	
+	
 	public RoleDTO getRoleDTO() {
 		return roleDTO;
 	}

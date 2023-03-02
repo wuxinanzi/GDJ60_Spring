@@ -2,6 +2,8 @@ package com.iu.s1.board;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import com.iu.s1.util.Pager;
 
 public interface BbsDAO {
@@ -13,11 +15,13 @@ public interface BbsDAO {
 	public List<BbsDTO> getBoardList(Pager pager) throws Exception;
 	
 	//INSERT(ADD)
-	public int setBoarAdd(BbsDTO bbsDTO)throws Exception;
+	public int setBoardAdd(BbsDTO bbsDTO)throws Exception;
 	
 	//UPDATE
 	public int setBoardUpdate(BbsDTO bbsDTO)throws Exception; 
 	
 	//DELETE
 	public  int setBoardDelete(BbsDTO bbsDTO)throws Exception;
+
+
 }
