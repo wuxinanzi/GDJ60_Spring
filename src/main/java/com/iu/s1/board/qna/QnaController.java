@@ -3,10 +3,12 @@ package com.iu.s1.board.qna;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
+import javax.swing.plaf.basic.BasicInternalFrameTitlePane.MoveAction;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Repository;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -42,6 +44,8 @@ public class QnaController {
 	public ModelAndView getBoardList(Pager pager)throws Exception{
 		ModelAndView mv = new ModelAndView();
 		List<BbsDTO> ar = qnaService.getBoardList(pager);
+	
+		
 		
 		mv.addObject("list",ar);
 		mv.setViewName("board/list");
@@ -139,4 +143,5 @@ public class QnaController {
 		mv.setViewName("board/update");
 		return mv;
 	}
+
 }
