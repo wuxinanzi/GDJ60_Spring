@@ -33,7 +33,7 @@
 		
 		<c:forEach items="${list}" var="dto">
 			<tr>
-				<td><a href="./detail?bookNum=${dto.bookNumber}">${pageScope.dto.bookName}</a></td>
+				<td><a href="./detail?bookNumber=${dto.bookNumber}">${pageScope.dto.bookName}</a></td>
 				<td class="tbl_td">${dto.bookRate}</td>
 				<td class="tbl_td">
 					<c:choose>

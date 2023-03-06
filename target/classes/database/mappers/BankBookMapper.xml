@@ -51,14 +51,13 @@
 		WHERE R BETWEEN #{startRow}  AND #{lastRow} 
 	</select>
 	
- 	
  	<select id="getBankBookDetail" parameterType="BankBookDTO" resultMap="bankBookDetailResult">
-				SELECT B.*,BI.*
-				FROM BANKBOOK B
-					 LEFT OUTER JOIN
-					 BANKBOOKIMG BI
-					 ON(B.BOOKNUMBER = BI.BOOKNUMBER)
-				WHERE B.BOOKNUMBER =#{bookNumber}
+ 		SELECT B.*, BI.*
+		FROM BANKBOOK B
+			 LEFT OUTER JOIN
+			 BANKBOOKIMG BI
+			 ON (B.BOOKNUMBER = BI.BOOKNUMBER)
+		WHERE B.BOOKNUMBER	=#{bookNumber}
  	</select>
  	
  	<resultMap type="BankBookDTO" id="bankBookDetailResult">

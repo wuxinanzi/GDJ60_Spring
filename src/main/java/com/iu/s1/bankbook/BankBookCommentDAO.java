@@ -8,7 +8,6 @@ import org.springframework.stereotype.Repository;
 
 import com.iu.s1.board.BbsDAO;
 import com.iu.s1.board.BbsDTO;
-import com.iu.s1.board.BoardDTO;
 import com.iu.s1.util.Pager;
 
 @Repository
@@ -17,7 +16,8 @@ public class BankBookCommentDAO implements BbsDAO {
 	@Autowired
 	private SqlSession sqlSession;
 	
-	private final String NAMESPACE ="com.iu.s1.bankbook.BankBookCommentDAO.";
+	private final String NAMESPACE = "com.iu.s1.bankbook.BankBookCommentDAO.";
+	
 	
 	@Override
 	public Long getTotalCount(Pager pager) throws Exception {
@@ -34,23 +34,21 @@ public class BankBookCommentDAO implements BbsDAO {
 	@Override
 	public int setBoardAdd(BbsDTO bbsDTO) throws Exception {
 		// TODO Auto-generated method stub
-		return 0;
+		return sqlSession.insert(NAMESPACE+"setBoardAdd", bbsDTO);
 	}
 
 	@Override
 	public int setBoardUpdate(BbsDTO bbsDTO) throws Exception {
 		// TODO Auto-generated method stub
-		return 0;
+	 return sqlSession.update(NAMESPACE+"setBoardUpdate", bbsDTO);
 	}
 
 	@Override
 	public int setBoardDelete(BbsDTO bbsDTO) throws Exception {
 		// TODO Auto-generated method stub
-		return 0;
+		return sqlSession.delete(NAMESPACE+"setBoardDelete", bbsDTO);
 	}
-
-
 	
-		
 	
+
 }

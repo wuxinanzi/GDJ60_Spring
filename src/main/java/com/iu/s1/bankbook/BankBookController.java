@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpSession;
+import javax.swing.text.html.parser.DTD;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -40,14 +41,16 @@ public class BankBookController {
 		return mv;
 	}
 	//detail
-	@RequestMapping(value="detail", method = RequestMethod.GET)
-	public ModelAndView getBankBookDetail(BankBookDTO bankBookDTO) throws Exception {
+	@RequestMapping(value = "detail", method = RequestMethod.GET)
+	public ModelAndView getBankBookDetail(BankBookDTO bankBookDTO)throws Exception{
+//		System.out.println(bankBookDTO.getBookNumber());
+//		System.out.println(bankBookDTO.getBookDetail());
 		ModelAndView mv = new ModelAndView();
-		bankBookDTO  = bankBookService.getBankBookDetail(bankBookDTO);
+		
+		bankBookDTO = bankBookService.getBankBookDetail(bankBookDTO);
 		
 		mv.setViewName("bankBook/detail");
 		mv.addObject("dto", bankBookDTO);
-		
 		
 		return mv;
 	}
@@ -62,10 +65,10 @@ public class BankBookController {
 	public ModelAndView setBankBookAdd(BankBookDTO bankBookDTO, MultipartFile pic,HttpSession session) throws Exception{
 		
 		ModelAndView mv = new ModelAndView();
-		System.out.println("Name : "+ pic.getName());
-		System.out.println("OriName : "+ pic.getOriginalFilename());
-		System.out.println("Size : "+ pic.getSize());
-		System.out.println(session.getServletContext());
+//		System.out.println("Name : "+ pic.getName());
+//		System.out.println("OriName : "+ pic.getOriginalFilename());
+//		System.out.println("Size : "+ pic.getSize());
+//		System.out.println(session.getServletContext());
 		
 		int result = bankBookService.setBankBookAdd(bankBookDTO, pic);//디비를 가야되니까 매개타입과 매개변수 작성
 		

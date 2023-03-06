@@ -20,6 +20,15 @@ public class MemberController {
 	@Autowired
 	private MemberService memberService;
 	
+	@PostMapping("memberIdCheck")
+	public ModelAndView getMemberIdCherck(MemberDTO memberDTO)throws Exception{
+		boolean check = memberService.getMemberIdCheck(memberDTO);
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("result", check);
+		mv.setViewName("common/ajaxResult");
+		return mv;
+	}
+	
 	@RequestMapping(value="memberAgree", method = RequestMethod.GET)
 	public void  setMemberAgree()throws Exception{
 		

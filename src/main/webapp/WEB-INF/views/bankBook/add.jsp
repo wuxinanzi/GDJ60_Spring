@@ -73,7 +73,7 @@
 		</form>
 	</div>
 </div>
-<script src="/resources/js/fileManger.js"></script>
+<script src="../resources/js/fileManger.js"></script>
 <script>
 	setMax(3);
 	//setParam('f');

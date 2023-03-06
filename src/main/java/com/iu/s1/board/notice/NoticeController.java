@@ -32,6 +32,18 @@ public class NoticeController {
 		return "notice";
 	}
 	
+	@GetMapping("listTop")
+	public ModelAndView getBoardListTop(Pager pager)throws Exception{
+		ModelAndView mv = new ModelAndView();
+		pager.setPerPage(5L);
+		
+		List<BbsDTO> ar = noticeService.getBoardList(pager);
+		
+		mv.addObject("list", ar);
+		mv.setViewName("common/noticeResult");
+		return mv;
+	}
+	
 	@RequestMapping(value="list", method = RequestMethod.GET)
 	public ModelAndView getBoardList(@ModelAttribute Pager pager)throws Exception{
 		ModelAndView mv = new ModelAndView();
@@ -95,6 +107,7 @@ public class NoticeController {
 		
 		return mv;
 	}
+	
 	@GetMapping("fileDown")
 	public ModelAndView getFileDown(BoardFileDTO boardFileDTO)throws Exception{
 		ModelAndView mv = new ModelAndView();
@@ -102,18 +115,21 @@ public class NoticeController {
 		
 		mv.addObject("boardFile", boardFileDTO);
 		mv.setViewName("fileDownView");
+		
 		return mv;
 	}
+	
 	@GetMapping("update")
 	public ModelAndView setBoardUpdate(BoardDTO boardDTO)throws Exception{
 		ModelAndView mv = new ModelAndView();
 		boardDTO = noticeService.getBoardDetail(boardDTO);
+		
 		mv.addObject("dto", boardDTO);
 		
 		mv.setViewName("board/update");
+		
 		return mv;
 	}
-
-
+	
 
 }

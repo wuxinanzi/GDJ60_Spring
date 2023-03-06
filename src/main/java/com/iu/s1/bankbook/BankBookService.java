@@ -19,7 +19,7 @@ public class BankBookService {
 	
 	//testcase 테스트시 Null이 들어옴
 	//API 추가 
-	//@Autowired
+	@Autowired
 	private ServletContext servletContext;
 	@Autowired
 	private FileManager fileManager;
@@ -38,7 +38,7 @@ public class BankBookService {
 	}
 	
 	public BankBookDTO getBankBookDetail(BankBookDTO bankBookDTO)throws Exception{
-		 return bankBookDAO.getBankBookDetail(bankBookDTO);
+		return bankBookDAO.getBankBookDetail(bankBookDTO);
 	}
 	
 	public int setBankBookAdd(BankBookDTO bankBookDTO,MultipartFile pic)throws Exception{

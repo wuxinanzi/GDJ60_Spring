@@ -12,3 +12,4 @@ public interface BoardService extends BbsService {
 
 	public BoardFileDTO getBoardFileDetail(BoardFileDTO boardFileDTO)throws Exception;
 }
+

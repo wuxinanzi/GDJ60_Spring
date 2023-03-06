@@ -29,31 +29,31 @@ public class BankBookCommentService implements BbsService {
 	}
 
 	@Override
+	public int setBoardAdd(BbsDTO bbsDTO, MultipartFile[] multipartFiles, HttpSession session) throws Exception {
+		// TODO Auto-generated method stub
+		return bankBookCommentDAO.setBoardAdd(bbsDTO);
+	}
+
+	@Override
+	public int setBoardUpdate(BbsDTO bbsDTO) throws Exception {
+		// TODO Auto-generated method stub
+		return bankBookCommentDAO.setBoardUpdate(bbsDTO);
+	}
+
+	@Override
+	public int setBoardDelete(BbsDTO bbsDTO, HttpSession session) throws Exception {
+		// TODO Auto-generated method stub
+		return bankBookCommentDAO.setBoardDelete(bbsDTO);
+	}
+
+	@Override
 	public int setBoardAdd(BbsDTO bbsDTO) throws Exception {
 		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	@Override
-	public int setBoardUpdate(BbsDTO bbsDTO) throws Exception {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
 	public int setBoardDelete(BbsDTO bbsDTO) throws Exception {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public int setBoardAdd(BbsDTO bbsDTO, MultipartFile[] multipartFiles, HttpSession session) throws Exception {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public int setBoardDelete(BbsDTO bbsDTO, HttpSession session) throws Exception {
 		// TODO Auto-generated method stub
 		return 0;
 	}
