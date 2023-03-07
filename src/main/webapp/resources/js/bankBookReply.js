@@ -56,7 +56,7 @@ function getList(page){
 
     let xhttp = new XMLHttpRequest();
 
-    xhttp.open("GET","/bankBookComment/list?bookNumber="+replyAdd.getAttribute('data-book-bookNumber')+"&page=");
+    xhttp.open("GET","/bankBookComment/list?bookNumber="+replyAdd.getAttribute('data-book-bookNumber')+"&page="+page);
 
 
     xhttp.addEventListener('readystatechange', function() {
@@ -74,7 +74,7 @@ function getList(page){
 commentListResult.addEventListener("click", function(e){
         let pageLink = e.target
         if(pageLink.classList.contains("page-link")){
-            pageLink.getAttribute("data-board-page");
+          let page = pageLink.getAttribute("data-board-page");
             getList(page);
         }
         e.preventDefault();
@@ -152,20 +152,36 @@ contentsConfirm.addEventListener("click",function(){
     let updateContents = document.getElementById("contents").value;
     let num = contentsConfirm.getAttribute("data-comment-num");
 
-    let xhttp = new XMLHttpRequest();
-    xhttp.open("POST","../bankBookComment/update");
-    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xhttp.send("num="+num+"&contents="+updateContents);
-    xhttp.addEventListener("readystatechange", function(){
-     if(this.readyState == 4 && this.status == 200){
-         let result = this.responseText.trim();
-         if(result>0){
-             alert('수정 성공.');
-             closeModal.click();
-             getList(1);
-         }else{
-             alert('수정 실패');
-         }
-     }
- }) 
-})
+    fetch('../bankBookComment/update',{
+            method:'POST',
+            headers:{
+                "Content-type":"application/x-www-form-urlencoded"
+            },
+            body:"num="+num+"&contents="+updateContents
+    }).then((response) => response.text())
+      .then((res)=>{
+        if(res.trim()>0){
+            alert('수정성공')
+            closeModal.click();
+            getList(1);
+        }else{
+            alert('수정 실패');
+        }
+      })
+//     let xhttp = new XMLHttpRequest();
+//     xhttp.open("POST","../bankBookComment/update");
+//     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+//     xhttp.send("num="+num+"&contents="+updateContents);
+//     xhttp.addEventListener("readystatechange", function(){
+//      if(this.readyState == 4 && this.status == 200){
+//          let result = this.responseText.trim();
+//          if(result>0){
+//              alert('수정 성공.');
+//              closeModal.click();
+//              getList(1);
+//          }else{
+//              alert('수정 실패');
+//          }
+//      }
+//  }) 
+});
