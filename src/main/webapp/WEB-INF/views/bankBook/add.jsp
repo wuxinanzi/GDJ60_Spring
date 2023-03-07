@@ -13,12 +13,11 @@
 <c:import url="../template/header.jsp"></c:import>
 
 <div class="container-fluid">
-
-	<div class="row col-md-7">
-		<h1>bankBook add Page</h1>
+	<div class="row justify-content-center my-4">
+		<h1 class="col-md-7 text-center">상품 등록 Page</h1>
 	</div>
 	
-	<div class="row justify-content-center">
+	<div class="row justify-content-center my-4">
 		<form class="col-md-7" action="./add" method="post" enctype="multipart/form-data">
 			<div class="mb-3">
 			  <label for="bookName" class="form-label">제품명</label>

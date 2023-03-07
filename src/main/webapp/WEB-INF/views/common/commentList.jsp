@@ -5,61 +5,61 @@
 <table class="table table-striped">
 <c:forEach items="${list}" var="dto">
 		<tr>
-			<td id="contents${dto.num}"><textarea cols="30" rows="10"readonly>${dto.contents}</textarea></td>
+			<td id="contents${dto.num}">${dto.contents}</td>
 			<td>${dto.writer}</td>
 			<td>${dto.regDate}</td>
 					<td>
-				<c:if test="${member.id eq dto.writer}">
-				<button class="btn btn-info update" data-comment-num="${dto.num}">UPDATE</button>
-			</c:if>
-			</td>
-			
-			
-			<td><c:if test="${member.id eq dto.writer}">
-				<button class="btn btn-danger del" data-comment-num="${dto.num}">DELETE</button>
-			</c:if>
-			</td>
-		</tr>
+						<c:if test="${member.id eq dto.writer}">
+							<button class="btn btn-info update" data-bs-toggle="modal" data-bs-target="#contentsModal" data-comment-num="${dto.num}">UPDATE</button>
+						</c:if>
+						</td>
+						<td>
+						<c:if test="${member.id eq dto.writer}">
+							<button class="btn btn-danger del" data-comment-num="${dto.num}">DELETE</button>
+						</c:if>
+						</td>
+					</tr>
 		
 </c:forEach>
 </table>
 
-<!-- paging  -->
+<!-- paging -->
 <div class="row">
 	<nav aria-label="Page navigation example">
 	  <ul class="pagination">
-		<li class="page-item ">
-		  <a class="page-link" href="./list?page=1&kind=${pager.kind}&search=${pager.search}" aria-label="Previous">
+		  <li class="page-item">
+		  <a class="page-link" href="#" aria-label="Previous" data-board-page="1">
 			<span aria-hidden="true">&laquo;</span>
 		  </a>
 		</li>
+	  
+	  
+		<li class="page-item ${pager.before?'disabled':''}">
+		  <a class="page-link" href="#" aria-label="Previous" data-board-page="${pager.startNum-1}">
+			<span aria-hidden="true">&lsaquo;</span>
+		  </a>
+		</li>
 		
-		 <li class="page-item ${pager.before?'disabled':''}">
-  <a class="page-link" href="./list?page=${pager.startNum-1}&kind=${pager.kind}&search=${pager.search}" aria-label="Previous">
-	<span aria-hidden="true">&lsaquo;</span>
-  </a>
-</li>
+		<c:forEach begin="${pager.startNum}" end="${pager.lastNum}" var="i">
+		<li class="page-item"><a class="page-link" href="#" data-board-page="${i}"  >${i}</a></li>
+		</c:forEach>
+		
+		<li class="page-item ${pager.after eq false ? 'disabled':''}"><%-- ${pager.after eq false ? 'disabled':''} --%>
 
-<c:forEach begin="${pager.startNum}" end="${pager.lastNum}" var="i">
-<li class="page-item"><a class="page-link" href="./list?page=${i}&kind=${pager.kind}&search=${pager.search}">${i}</a></li>
-</c:forEach>
+		  <a class="page-link" href="#"  aria-label="Next" data-board-page="${pager.lastNum+1}">
+		  
+			<span aria-hidden="true">&rsaquo;</span>
+		  </a>
+		</li>
+		
+		<li class="page-item"><%-- ${pager.after eq false ? 'disabled':''} --%>
 
-<li class="page-item ${pager.after eq false ? 'disabled':''}"><%-- ${pager.after eq false ? 'disabled':''} --%>
-
-  <a class="page-link" href="./list?page=${pager.lastNum+1}&kind=${pager.kind}&search=${pager.search}"  aria-label="Next">
-  
-	<span aria-hidden="true">&rsaquo;</span>
-  </a>
-</li>
-
-<li class="page-item"><%-- ${pager.after eq false ? 'disabled':''} --%>
-
-  <a class="page-link" href="./list?page=${pager.totalPage}&kind=${pager.kind}&search=${pager.search}"  aria-label="Next">
-  
-	<span aria-hidden="true">&raquo;</span>
-  </a>
-</li>
-
-</ul>
-</nav>
+		  <a class="page-link" href="#"  aria-label="Next" data-board-page="${pager.totalPage}">
+		  
+			<span aria-hidden="true">&raquo;</span>
+		  </a>
+		</li>
+		
+	  </ul>
+	</nav>
 </div>
