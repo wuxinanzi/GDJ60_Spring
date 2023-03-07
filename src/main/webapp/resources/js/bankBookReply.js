@@ -6,29 +6,50 @@ const commentListResult = document.getElementById("commentListResult");
 const contentsConfirm = document.getElementById('contentsConfirm');
 const closeModal = document.getElementById('closeModal');
 
-
+//댓글 등록
 replyAdd.addEventListener("click", function(){
-    let xhttp = new XMLHttpRequest();
 
-    xhttp.open("POST","../bankBookComment/add");
+    console.log(replyAdd.getAttribute('data-book-bookNumber'));
 
-    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    fetch('../bankBookComment/add',{
+        method:'POST',
+        //headers:{}
+        body:{
+            contensts: replyContents.value,
+            bookNumber: replyAdd.getAttribute('data-book-bookNumber')
+        }
 
-    xhttp.send("contents="+replyContents.value+"&bookNumber="+replyAdd.getAttribute('data-book-bookNumber'));
-
-
-   xhttp.addEventListener('readystatechange', function(){
-            if(this.readyState == 4 && this.status == 200){
-                if(this.responseText.trim()==1){
-                    alert('댓글이 잘 들어왔습니다.')
+    }).then((response) => response.text())
+    .then((res)=>{
+        if(res.trim() == 1){
+            alert('댓글이 잘 들어왔습니다.')
                     replyContents.innerHTML="";
                     getList();
                 }else {
                     alert('댓글 등록에 실패 했습니다.')
                 }
-            }  
-   })
-})
+    })
+//     let xhttp = new XMLHttpRequest();
+
+//     xhttp.open("POST","../bankBookComment/add");
+
+//     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+//     xhttp.send("contents="+replyContents.value+"&bookNumber="+replyAdd.getAttribute('data-book-bookNumber'));
+
+
+//    xhttp.addEventListener('readystatechange', function(){
+//             if(this.readyState == 4 && this.status == 200){
+//                 if(this.responseText.trim()==1){
+//                     alert('댓글이 잘 들어왔습니다.')
+//                     replyContents.innerHTML="";
+//                     getList();
+//                 }else {
+//                     alert('댓글 등록에 실패 했습니다.')
+//                 }
+//             }  
+//    })
+});
 getList(1);
 //getList는 새로 불러 오는것
 
