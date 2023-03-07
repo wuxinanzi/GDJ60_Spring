@@ -7,6 +7,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <c:import url="../template/common_css.jsp"></c:import>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
 </head>
 <body>
 <c:import url="../template/header.jsp"></c:import>
@@ -48,7 +49,7 @@
 
 	</div>
 
-   <!--  Update Form Modal -->
+	<!--  Update Form Modal -->
 	<!-- Modal -->
 	<div class="modal fade" id="contentsModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
@@ -65,12 +66,11 @@
 			</div>
 			<div class="modal-footer">
 			<button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="closeModal">Cancel</button>
-			<button type="button" class="btn btn-primary" data-comment-num="" id="contentsConfirm">확인</button>
+			<button type="button" class="btn btn-primary" data-comment-num="1" id="contentsConfirm">확인</button>
 			</div>
 		</div>
 		</div>
 	</div>
-	
 
 <c:import url="../template/common_js.jsp"></c:import>
 <script src="/resources/js/bankBookReply.js"></script>	
