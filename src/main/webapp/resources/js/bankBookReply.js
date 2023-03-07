@@ -9,16 +9,12 @@ const closeModal = document.getElementById('closeModal');
 //댓글 등록
 replyAdd.addEventListener("click", function(){
 
-    console.log(replyAdd.getAttribute('data-book-bookNumber'));
+    console.log("num : ", replyAdd.getAttribute('data-book-bookNumber'));
 
     fetch('../bankBookComment/add',{
         method:'POST',
-        //headers:{}
-        body:{
-            contensts: replyContents.value,
-            bookNumber: replyAdd.getAttribute('data-book-bookNumber')
-        }
-
+        headers:{'Content-type':"application/x-www-form-urlencoded"},
+        body:"contents="+replyContents.value+"&bookNumber="+replyAdd.getAttribute('data-book-bookNumber'),
     }).then((response) => response.text())
     .then((res)=>{
         if(res.trim() == 1){
@@ -83,25 +79,48 @@ commentListResult.addEventListener("click", function(e){
         }
         e.preventDefault();
 });
-
+//delete
 commentListResult.addEventListener("click", function(e){
     let del = e.target
     if(del.classList.contains("del")){
-       let xhttp = new XMLHttpRequest();
-       xhttp.open("POST","../bankBookComment/delete");
-       xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-       xhttp.send("num="+del.getAttribute("data-comment-num"));
-       xhttp.addEventListener("readystatechange", function(){
-        if(this.readyState == 4 && this.status == 200){
-            let result = this.responseText.trim();
-            if(result>0){
-                alert('댓글이 삭제 되었습니다.');
-                getList(1);
-            }else{
+
+        fetch("../bankBookComment/delete",{
+            method:'POST',
+            headers:{
+                "Content-type": "application/x-www-form-urlencoded"
+            },
+            body : "num="+del.getAttribute("data-comment-num")
+            //응답객체에서 Data 추출
+        }).then((response)=>{return response.text()}) //.then(function(response){return response.text()})
+          //추출한 Data 사용
+            .then((res)=>{
+                if(res.trim()>0){
+                    alert('댓글이 삭제 되었습니다');
+                    getList(1);
+                }else{
+                    alert('삭제 실패');
+                }
+            }).catch(()=>{
+
                 alert('삭제 실패');
-            }
-        }
-    })     
+
+            });
+    
+        //    let xhttp = new XMLHttpRequest();
+    //    xhttp.open("POST","../bankBookComment/delete");
+    //    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    //    xhttp.send("num="+del.getAttribute("data-comment-num"));
+    //    xhttp.addEventListener("readystatechange", function(){
+    //     if(this.readyState == 4 && this.status == 200){
+    //         let result = this.responseText.trim();
+    //         if(result>0){
+    //             alert('댓글이 삭제 되었습니다.');
+    //             getList(1);
+    //         }else{
+    //             alert('삭제 실패');
+    //         }
+    //     }
+    // })     
     }
     e.preventDefault();
 });
@@ -136,7 +155,7 @@ contentsConfirm.addEventListener("click",function(){
     let xhttp = new XMLHttpRequest();
     xhttp.open("POST","../bankBookComment/update");
     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xhttp.send("num="+num+"&contetnse="+updateContents);
+    xhttp.send("num="+num+"&contents="+updateContents);
     xhttp.addEventListener("readystatechange", function(){
      if(this.readyState == 4 && this.status == 200){
          let result = this.responseText.trim();
