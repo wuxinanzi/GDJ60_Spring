@@ -130,6 +130,16 @@ public class NoticeController {
 		
 		return mv;
 	}
-	
+	@PostMapping("update")
+	public ModelAndView setBoardUpdate(BoardDTO boardDTO,MultipartFile [] addFiles,HttpSession session, Long [] fileNum)throws Exception{
+		ModelAndView mv =new ModelAndView();
+		int result = noticeService.setBoardUpdate(boardDTO, addFiles, session, fileNum);
+		
+		mv.setViewName("common/result");
+		mv.addObject("result", "수정 성공");
+		mv.addObject("url", "./list");
+		return mv;
+	}
+	//----------------------------------------------------------------------------
 
 }

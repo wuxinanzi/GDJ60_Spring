@@ -84,4 +84,7 @@
   <select id="getBoardFileDetail" parameterType="BoardFileDTO" resultType="BoardFileDTO">
   		SELECT * FROM NOTICEFILES WHERE FILENUM=#{fileNum}
   </select>
+  <update id="setBoardUpdate" parameterType="BbsDTO">
+  		UPDATE QNA SET TITLE=#{title}, CONTENTS=#{contents} WHERE NUM=#{num}
+  	</update>
   </mapper>

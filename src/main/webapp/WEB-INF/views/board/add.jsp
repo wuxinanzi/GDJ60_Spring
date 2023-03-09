@@ -55,11 +55,11 @@
 	</div>
 </div>
 <script src="/resources/js/fileManger.js"></script>
+<c:import url="../template/common_js.jsp"></c:import>
 <script>
-	setMax(5);
 	setParam('addFiles');
+	setMax(5);
 	$("#contents").summernote();
 </script>
-<c:import url="../template/common_js.jsp"></c:import>
 </body>
 </html>

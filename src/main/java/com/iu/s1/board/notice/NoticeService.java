@@ -117,7 +117,34 @@ public class NoticeService implements BoardService {
 	public int setBoardUpdate(BbsDTO bbsDTO, MultipartFile[] multipartFiles, HttpSession session, Long[] fileNums)
 			throws Exception {
 		// TODO Auto-generated method stub
-		return 0;
+int result = noticeDAO. setBoardUpdate(bbsDTO);
+		
+		//qnaFiles Delete
+		if(fileNums !=null) {
+		for(Long fileNum : fileNums) {
+			noticeDAO.setBoardFileDelete(fileNum);
+		}
+		}
+		//qnaFiLES Insert
+		//file HDD에 저장
+		
+	    String realPath = session.getServletContext().getRealPath("resources/upload/notice");
+	    System.out.println(realPath);
+		 
+		for(MultipartFile multipartFile: multipartFiles) {
+			 if(multipartFile.isEmpty()) {
+				 continue;
+			 }
+	    String fileName = fileManager.fileSave(multipartFile, realPath);
+	    //DB INSERT
+	    BoardFileDTO boardFileDTO = new BoardFileDTO();
+		boardFileDTO.setNum(bbsDTO.getNum());
+		boardFileDTO.setFileName(fileName);
+		boardFileDTO.setOriName(multipartFile.getOriginalFilename());
+				
+		result=noticeDAO.setBoardFileAdd(boardFileDTO);
+		 }
+		return result;
 	}
 	
 
