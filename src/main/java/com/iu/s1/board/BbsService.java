@@ -22,8 +22,8 @@ public interface BbsService {
 	//delete
 	public int setBoardDelete(BbsDTO bbsDTO, HttpSession session)throws Exception;
 
-	public int setBoardAdd(BbsDTO bbsDTO) throws Exception;
-
-	public int setBoardDelete(BbsDTO bbsDTO) throws Exception;
+	
+	
+	
 	
 }

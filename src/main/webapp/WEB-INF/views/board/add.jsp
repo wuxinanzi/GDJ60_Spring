@@ -29,7 +29,7 @@
 			
 			<div class="mb-3">
 			  <label for="title" class="form-label">제목</label>
-			  <input type="text" name="title" class="form-control" id="title" placeholder="제목 입력">
+			  <input type="text" name="title"  class="form-control" id="title" placeholder="제목 입력">
 			</div>
 	
 			<div class="mb-3">
@@ -57,7 +57,7 @@
 <script src="/resources/js/fileManger.js"></script>
 <script>
 	setMax(5);
-	setParam('files');
+	setParam('addFiles');
 	$("#contents").summernote();
 </script>
 <c:import url="../template/common_js.jsp"></c:import>

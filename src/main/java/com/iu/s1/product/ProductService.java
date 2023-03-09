@@ -87,8 +87,8 @@ public class ProductService {
 //      }
 //   }
 
-public ProductDTO getProductDetail(ProductDTO productDTO) {
+public ProductDTO getProductDetail(ProductDTO productDTO)throws Exception {
 	// TODO Auto-generated method stub
-	return null;
+	return productDAO.getProductDetail(productDTO);
 }
    }
