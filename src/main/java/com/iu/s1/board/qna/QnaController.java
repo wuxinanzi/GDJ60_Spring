@@ -3,17 +3,21 @@ package com.iu.s1.board.qna;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
-import javax.swing.plaf.basic.BasicInternalFrameTitlePane.MoveAction;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
-import org.springframework.stereotype.Repository;
+import org.springframework.util.LinkedMultiValueMap;
+import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.client.RestTemplate;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -26,29 +30,55 @@ import com.iu.s1.board.notice.NoticeDTO;
 import com.iu.s1.util.Pager;
 
 @Controller
-@RequestMapping("/qna/*")
+@RequestMapping("/qna/**")
 public class QnaController {
 	
 	@Autowired
 	private QnaService qnaService;
 	
-	
-	
-	//모든 메서드가 실행하기전에 이걸 담아주세요라는 것
 	@ModelAttribute("boardName")
 	public String getBoardName() {
 		return "qna";
 	}
 	
-	@RequestMapping(value = "list", method = RequestMethod.GET)
+	@RequestMapping(value="list", method = RequestMethod.GET)
 	public ModelAndView getBoardList(Pager pager)throws Exception{
 		ModelAndView mv = new ModelAndView();
 		List<BbsDTO> ar = qnaService.getBoardList(pager);
-	
-		
-		
-		mv.addObject("list",ar);
+		mv.addObject("list", ar);
 		mv.setViewName("board/list");
+		
+		
+		RestTemplate restTemplate = new RestTemplate();
+		
+		//URL, Method, paramter, header
+		
+		
+		//Header
+		HttpHeaders headers = new HttpHeaders();
+		//1. headers.add("header명", "header값");
+		headers.add("Content-Type","application/x-www-form-urlencoded");
+		//2. headers.set헤더명("header값");
+		headers.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
+		
+		//parameter(post)
+		MultiValueMap<String, String> params = new LinkedMultiValueMap<String, String>();
+		params.add("파라미터명", "파라미터값");
+		params.add("grant_type", "authorization_code");
+		params.add("client_id", "${REST_API_KEY}");
+		
+		//header, params 하나의 객체로 생성
+		HttpEntity<MultiValueMap<String, String>> request = new HttpEntity<MultiValueMap<String,String>>(params, headers); 
+		
+		
+		//String result = restTemplate.getForObject("https://dummyjson.com/products/1", String.class, request);
+		String result = restTemplate.postForObject("https://dummyjson.com/products/1", request, String.class);
+		
+		System.out.println(result);
+		
+		
+		
+		
 		
 		return mv;
 	}

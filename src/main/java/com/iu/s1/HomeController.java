@@ -26,6 +26,46 @@ public class HomeController {
 	public String home(Locale locale, Model model) {
 		logger.info("Welcome home! The client locale is {}.", locale);
 		
+//		HttpHeaders headers = new HttpHeaders();
+//		headers.setContentType(MediaType.APPLICATION_JSON);
+//		
+//		MultiValueMap<String, String> params = new LinkedMultiValueMap<String, String>();
+//		params.add("q", "Laptop");
+//		
+//		
+//		HttpEntity<MultiValueMap<String, String>> request = new HttpEntity<MultiValueMap<String,String>>(params, headers);
+//		
+//		HttpEntity<String> req = new HttpEntity<String>(headers);
+//		
+//		RestTemplate rt = new RestTemplate();
+//		//DummyList result = rt.getForObject("https://dummyjson.com/posts/1", DummyList.class, req);
+//		//ResponseEntity<String> result = rt.getForEntity("https://dummyjson.com/posts", String.class, request);
+//		String result = rt.getForObject("https://dummyjson.com/posts", String.class, request);
+//		//String result =rt.getForObject("https://dummyjson.com/products/search?", String.class, request);
+//		//System.out.println("result : "+result.getDummyDTOs());
+//		System.out.println(result);
+//		ObjectMapper mapper = new ObjectMapper();
+//		try {
+//			JsonNode jn = mapper.readValue(result, JsonNode.class);
+//			System.out.println(jn.get("posts").toString());
+//			mapper = new ObjectMapper();
+//			jn = mapper.readValue(jn.get("posts").asText().trim(), JsonNode.class);
+//			
+//			List<DummyDTO> d=Arrays.asList(mapper.readValue(jn.asText(), DummyDTO[].class));
+//			System.out.println(d.get(0).getBody());
+//		} catch (JsonMappingException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		} catch (JsonProcessingException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//		
+		
+		
+		
+		
+		
 		Date date = new Date();
 		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
 		
